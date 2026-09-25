@@ -68,9 +68,8 @@ to a fab without owning Altium. Please leave them tracked.
 
 ## Building one
 
-1. **Order the parts.** The authoritative bill of materials — with suppliers and part
-   numbers — is the ordering guide on the lessons site:
-   [LNA Ordering Parts Info (PDF)](https://wvurail.org/dspira/FilesUploaded/LNA_OrderingParts_Info_4.pdf)
+1. **Order the parts.** Use the [parts ordering guide, revision 4 (PDF)](docs/assembly/parts-guide-v4.pdf).
+   Its suppliers, part numbers, and [component locations](docs/assembly/component-locations.jpg) are maintained with the hardware.
 2. **Fabricate the board.** Send `HI_amp_v3_gerbers/` to any PCB house.
 3. **Assemble it.** Full step-by-step soldering instructions, with photos and video for
    each component type, are in
@@ -79,7 +78,7 @@ to a fab without owning Altium. Please leave them tracked.
    moisture, dust, and static discharge.
 
 > 📋 **TODO for a maintainer:** a machine-readable `bom.csv` should live in this repo so
-> the design is self-contained if the lessons-site PDF ever moves. Altium can export one
+> the parts list can also be processed automatically. Altium can export one
 > directly from `HI_Amplifer_schematic.SchDoc` (Reports → Bill of Materials). This was
 > deliberately *not* transcribed by hand from the schematic PDF — the risk of a wrong
 > value sending someone's parts order sideways is not worth it.
