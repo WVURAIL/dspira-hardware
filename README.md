@@ -1,14 +1,12 @@
-# DSPIRA Hydrogen-Line LNA (`os_radio_astro_hw`)
+# DSPIRA Hydrogen-Line LNA (`dspira-hardware`)
 
 Open hardware design files for the **DSPIRA low-noise amplifier** — a 1420 MHz
 preamplifier for neutral hydrogen (21 cm) observations, designed by
 **Kevin Bandura** (WVU LCSEE) for the DSPIRA horn telescope.
 
-> ⚠️ **This repository is linked from published DSPIRA curriculum.**
-> The lesson [*Low Noise Amplifier (LNA) Options*](https://wvurail.org/dspira-lessons/LNA)
-> points teachers here to obtain fabrication files. **Do not delete or transfer this
-> repository out of the organization** — either action breaks that link. (Renaming is
-> safe; GitHub preserves redirects for renames.)
+Previously named `os_radio_astro_hw`. GitHub redirects the old repository name
+to `dspira-hardware`; keep the old name unused so those links continue working.
+See the [repository map](https://wvurail.org/dspira/repository-map/).
 
 ## What this is for
 
@@ -72,11 +70,11 @@ to a fab without owning Altium. Please leave them tracked.
 
 1. **Order the parts.** The authoritative bill of materials — with suppliers and part
    numbers — is the ordering guide on the lessons site:
-   [LNA Ordering Parts Info (PDF)](https://wvurail.org/dspira-lessons/FilesUploaded/LNA_OrderingParts_Info_4.pdf)
+   [LNA Ordering Parts Info (PDF)](https://wvurail.org/dspira/FilesUploaded/LNA_OrderingParts_Info_4.pdf)
 2. **Fabricate the board.** Send `HI_amp_v3_gerbers/` to any PCB house.
 3. **Assemble it.** Full step-by-step soldering instructions, with photos and video for
    each component type, are in
-   [Detailed LNA Construction Instructions](https://wvurail.org/dspira-lessons/DetailedLNAInstructions).
+   [Detailed LNA Construction Instructions](https://wvurail.org/dspira/DetailedLNAInstructions).
 4. **Coat it.** Apply silicone conformal coating after soldering, to protect against
    moisture, dust, and static discharge.
 
@@ -96,8 +94,10 @@ practical for your group:
 
 ## Related
 
-- [DSPIRA lessons portal](https://wvurail.org/dspira-lessons/) — the curriculum this hardware serves
-- [Building the Horn Telescope](https://wvurail.org/dspira-lessons/BuildingHornTelescope_Overview)
+- [DSPIRA software](https://wvurail.org/dspira/software/) — classroom applications and installation guidance
+
+- [DSPIRA lessons portal](https://wvurail.org/dspira/) — the curriculum this hardware serves
+- [Building the Horn Telescope](https://wvurail.org/dspira/BuildingHornTelescope_Overview)
 
 ## Licence
 
