@@ -113,3 +113,9 @@ speaks directly to fabrication outputs and the right to manufacture.
 Designed by Kevin Bandura, West Virginia University, Lane Department of Computer Science
 and Electrical Engineering. Developed under the **DSPIRA** NSF Research Experiences for
 Teachers (RET) programme.
+
+## Design and assembly notes
+
+The [institute design references](docs/institute/) include three amplifier design and assembly documents.
+Use their revision notes alongside the current construction lesson.
+Their original license is retained separately from the board design license.
