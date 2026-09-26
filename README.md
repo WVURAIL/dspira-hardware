@@ -1,120 +1,46 @@
-# DSPIRA Hydrogen-Line LNA (`dspira-hardware`)
+# DSPIRA hardware
 
-Open hardware design files for the **DSPIRA low-noise amplifier** — a 1420 MHz
-preamplifier for neutral hydrogen (21 cm) observations, designed by
-**Kevin Bandura** (WVU LCSEE) for the DSPIRA horn telescope.
+Design and fabrication files for the DSPIRA hydrogen-line low-noise amplifier, designed by Kevin Bandura at West Virginia University.
+The amplifier serves the DSPIRA horn telescope at 1420 MHz.
 
-Previously named `os_radio_astro_hw`. GitHub redirects the old repository name
-to `dspira-hardware`; keep the old name unused so those links continue working.
-See the [repository map](https://wvurail.org/dspira/repository-map/).
+Start with the [hardware guide](https://wvurail.org/dspira/hardware/) or the [amplifier construction lesson](https://wvurail.org/dspira/DetailedLNAInstructions).
 
-## What this is for
+## Find what you need
 
-The LNA is the most critical component of the horn telescope. It amplifies the extremely
-weak 21 cm signal and must sit as close to the antenna probe as possible, so that noise
-picked up downstream is not amplified along with the signal. It connects to the probe
-through a standard SMA connector.
+| Folder | Contents |
+| --- | --- |
+| [design](design/) | Readable schematic and editable Altium files |
+| [fabrication](fabrication/) | Version 3 Gerber layers and drill file |
+| [assembly](assembly/) | Parts ordering guide and component locations |
+| [assembly/reference](assembly/reference/) | Earlier parts and assembly guides |
+| [docs](docs/) | Design overview, original design memo, and file history |
+| [licenses](licenses/) | Original notices for imported assembly material |
 
-This design was intended to work in **urban environments**, where a filtered front end
-matters more than it does at a quiet site. Approximate build cost is **$60**.
+## Build an amplifier
 
-## Design summary
+1. Review the [version 3 schematic](design/amplifier-v3.pdf) and match the documents to your board revision.
+2. Order components using the [revision 4 parts guide](assembly/parts-guide-v4.pdf).
+3. Send the eight files in [fabrication/v3](fabrication/v3/) to your board manufacturer.
+4. Follow the [construction lesson](https://wvurail.org/dspira/DetailedLNAInstructions), using the [component locations](assembly/component-locations.jpg).
 
-Signal chain, per the schematic (`Neutral_Hydrogen_amplifier_v3.pdf`):
+The [design overview](docs/design-overview.md) explains the amplifier and remaining documentation work.
+For commercial alternatives, see the [amplifier options lesson](https://wvurail.org/dspira/LNA).
 
-Component census, taken directly from the Altium schematic source:
+## Names and contributions
 
-| Qty | Part | Role |
-|---|---|---|
-| 1 | **SAV-541** | Front-end low-noise transistor. As the first active device, its noise figure is what sets the system noise temperature. |
-| 2 | **GALI 39+** | Mini-Circuits MMIC gain blocks |
-| 2 | **BFCN-1445** | Mini-Circuits bandpass filters, centred near 1445 MHz |
-| 1 | **LM2940** | Low-dropout 5 V regulator (SOT-223); DC fed over the RF output, bias-tee style |
+Folders and ordinary files use lowercase names with hyphens.
+Altium source names and fabrication extensions retain their tool conventions; see the [design notes](design/README.md).
+The [file map](docs/file-map.json) lists earlier paths and their replacements.
+Follow the [contribution guide](CONTRIBUTING.md) when updating a design or fabrication set.
 
-So: three gain stages and two filters, not a single amplify-then-filter chain.
+Previously named `os_radio_astro_hw`. Keep that name unused so GitHub's repository redirects continue working.
+See the [repository map](https://wvurail.org/dspira/repository-map/) for related projects.
 
-The schematic annotates **NF = 2.4 dB, IP3 = 23 dBm, S21 = 21 dB** twice, against the
-GALI 39+ stages — those figures describe the gain blocks, **not** the SAV-541 front end.
-For the front-end noise figure, which is the number that actually matters for a
-low-noise amplifier, read the SAV-541 datasheet rather than trusting any summary here.
+Lessons belong in [dspira](https://github.com/WVURAIL/dspira).
+Applications and processing code belong in [dspira-software](https://github.com/WVURAIL/dspira-software).
 
-Passives are **0603** surface-mount throughout, 1% tolerance where marked.
-Board revision **v3**, dated 2017-08-18.
+## Credits and licenses
 
-## Files
-
-| Path | What it is |
-|---|---|
-| `Neutral_Hydrogen_amplifier_v3.pdf` | **Readable schematic.** Start here — this is the only file viewable without commercial software. |
-| `HI_Amplifer_schematic.SchDoc` | Altium schematic source (binary). *(Filename typo "Amplifer" is historical — kept so existing links don't break.)* |
-| `HI_Amplifier.PcbDoc` | Altium PCB layout source (binary) |
-| `HI_amp_v3_gerbers/` | **Fabrication files.** Gerber layers + NC drill (`.TXT`). Send this folder to a board house as-is. |
-
-### Why Gerbers are committed
-
-Gerbers are normally build output and would be excluded from version control. Here they
-are **the deliverable** — a teacher following the lesson needs to download and send them
-to a fab without owning Altium. Please leave them tracked.
-
-### Gerber layer key
-
-| Extension | Layer |
-|---|---|
-| `.GTL` / `.GBL` | Top / bottom copper |
-| `.GTS` / `.GBS` | Top / bottom solder mask |
-| `.GTO` / `.GBO` | Top / bottom silkscreen |
-| `.GKO` | Board outline (keep-out) |
-| `.TXT` | NC drill file |
-
-## Building one
-
-1. **Order the parts.** Use the [parts ordering guide, revision 4 (PDF)](docs/assembly/parts-guide-v4.pdf).
-   Its suppliers, part numbers, and [component locations](docs/assembly/component-locations.jpg) are maintained with the hardware.
-2. **Fabricate the board.** Send `HI_amp_v3_gerbers/` to any PCB house.
-3. **Assemble it.** Full step-by-step soldering instructions, with photos and video for
-   each component type, are in
-   [Detailed LNA Construction Instructions](https://wvurail.org/dspira/DetailedLNAInstructions).
-4. **Coat it.** Apply silicone conformal coating after soldering, to protect against
-   moisture, dust, and static discharge.
-
-> 📋 **TODO for a maintainer:** a machine-readable `bom.csv` should live in this repo so
-> the parts list can also be processed automatically. Altium can export one
-> directly from `HI_Amplifer_schematic.SchDoc` (Reports → Bill of Materials). This was
-> deliberately *not* transcribed by hand from the schematic PDF — the risk of a wrong
-> value sending someone's parts order sideways is not worth it.
-
-## Alternatives to building your own
-
-The lessons page also lists commercial options if hand-soldering 0603 parts is not
-practical for your group:
-
-- Nooelec SAWbird+ H1 (~$45)
-- GPIO Labs Hydrogen Line LNA with bias tee (~$54)
-
-## Related
-
-- [DSPIRA software](https://wvurail.org/dspira/software/) — classroom applications and installation guidance
-
-- [DSPIRA lessons portal](https://wvurail.org/dspira/) — the curriculum this hardware serves
-- [Building the Horn Telescope](https://wvurail.org/dspira/BuildingHornTelescope_Overview)
-
-## Licence
-
-See [`LICENSE`](LICENSE) — **CC0 1.0**: the design files are dedicated to the
-public domain. Build it, modify it, sell boards, no permission needed.
-
-If this design is ever substantially revised, a purpose-built hardware licence —
-CERN-OHL-P (permissive) or CERN-OHL-S (reciprocal) — is worth considering, as it
-speaks directly to fabrication outputs and the right to manufacture.
-
-## Credits
-
-Designed by Kevin Bandura, West Virginia University, Lane Department of Computer Science
-and Electrical Engineering. Developed under the **DSPIRA** NSF Research Experiences for
-Teachers (RET) programme.
-
-## Design and assembly notes
-
-The [institute design references](docs/institute/) include three amplifier design and assembly documents.
-Use their revision notes alongside the current construction lesson.
-Their original license is retained separately from the board design license.
+Kevin Bandura designed the amplifier through WVU's DSPIRA Research Experiences for Teachers program.
+The board design retains its [CC0 notice](LICENSE).
+Imported assembly documents retain their separate [MIT notices](licenses/).
