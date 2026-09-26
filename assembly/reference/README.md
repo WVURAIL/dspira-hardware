@@ -12,6 +12,5 @@ Older component choices, bias settings, and cost estimates may differ from your 
 
 The parts guide retains the [lesson repository's MIT notice](../../licenses/assembly.txt).
 The two institute guides retain the [institute MIT notice](../../licenses/institute.txt).
-Original paths and checksums are recorded in [source history](../../docs/history/).
 
 For the amplifier's design rationale, see the [2017 design memo](../../docs/amplifier-design-2017.pdf).

@@ -11,7 +11,7 @@ Send software to [dspira-software](https://github.com/WVURAIL/dspira-software).
 - Keep fabrication folders limited to the files a board manufacturer needs.
 - Put current parts guides and component images in `assembly/`.
 - Keep earlier assembly documents in `assembly/reference/`, with their revision or date in the name.
-- Put design explanations in `docs/` and original import records in `docs/history/`.
+- Put design explanations in `docs/` and record import details in the commit description.
 - Preserve author credits and license notices when importing material.
 
 Use descriptive lowercase names with hyphens.
@@ -27,7 +27,6 @@ Export a matching schematic PDF when updating the editable sources.
 
 For file moves, verify that the design and fabrication bytes remain unchanged.
 Add old-to-new paths to `docs/file-map.json` and update affected links in the `dspira` website.
-Keep original import paths and checksums unchanged in historical manifests.
 
 A machine-readable bill of materials is still needed.
 Export it from Altium and verify it against the schematic and parts guide before publishing it.

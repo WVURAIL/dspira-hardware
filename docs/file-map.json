@@ -1,6 +1,6 @@
 {
   "previous_revision": "c61eb7a74ab0a659dc0ce6df278c01334b64485a",
-  "description": "Earlier paths and their current replacements. Original import manifests retain their historical paths and checksums.",
+  "description": "Earlier paths and their current replacements. Retired import records remain in Git history.",
   "files": {
     "HI_Amplifer_schematic.SchDoc": "design/altium/HI_Amplifer_schematic.SchDoc",
     "HI_Amplifier.PcbDoc": "design/altium/HI_Amplifier.PcbDoc",
@@ -15,8 +15,6 @@
     "docs/institute/README.md": "assembly/reference/README.md",
     "docs/assembly/LICENSE.txt": "licenses/assembly.txt",
     "docs/institute/SOURCE-LICENSE.txt": "licenses/institute.txt",
-    "docs/assembly/source-manifest.json": "docs/history/assembly-import.json",
-    "docs/institute/source-manifest.json": "docs/history/institute-import.json",
     "HI_amp_v3_gerbers/HI_Amplifier.GBL": "fabrication/v3/amplifier-v3.GBL",
     "HI_amp_v3_gerbers/HI_Amplifier.GBO": "fabrication/v3/amplifier-v3.GBO",
     "HI_amp_v3_gerbers/HI_Amplifier.GBS": "fabrication/v3/amplifier-v3.GBS",

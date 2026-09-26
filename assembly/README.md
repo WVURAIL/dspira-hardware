@@ -10,4 +10,4 @@ Use the [construction lesson](https://wvurail.org/dspira/DetailedLNAInstructions
 The [version 3 schematic](../design/amplifier-v3.pdf) is stored with its editable design files.
 
 The parts guides and component image moved unchanged from the DSPIRA lesson repository.
-Their original [MIT notice](../licenses/assembly.txt) and [import record](../docs/history/assembly-import.json) remain available.
+Their original [MIT notice](../licenses/assembly.txt) remains available.
